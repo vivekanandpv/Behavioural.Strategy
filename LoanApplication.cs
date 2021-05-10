@@ -12,9 +12,9 @@ namespace Behavioural.Strategy
         public int MonthlyIncome { get; set; }
         public int NExistingLoans { get; set; }
 
-        public bool IsLoanApproved(ILoanApprovalStrategy strategy)
+        public bool IsLoanApproved(Func<ILoanApplication, bool> strategy)
         {
-            return strategy.IsApproved(this);
+            return strategy(this);
         }
     }
 }

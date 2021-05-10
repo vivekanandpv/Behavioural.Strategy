@@ -1,4 +1,6 @@
-﻿namespace Behavioural.Strategy
+﻿using System;
+
+namespace Behavioural.Strategy
 {
     public interface ILoanApplication
     {
@@ -8,6 +10,6 @@
         public int MonthlyIncome { get; set; }
         public int NExistingLoans { get; set; }
 
-        bool IsLoanApproved(ILoanApprovalStrategy strategy);
+        bool IsLoanApproved(Func<ILoanApplication, bool> strategy);
     }
 }

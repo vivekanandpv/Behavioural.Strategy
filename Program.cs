@@ -15,11 +15,8 @@ namespace Behavioural.Strategy
                 NExistingLoans = 2
             };
 
-            ILoanApprovalStrategy carStrategy = new CarLoanApprovalStrategy();
-            ILoanApprovalStrategy homeStrategy = new HomeLoanApprovalStrategy();
-
-            Console.WriteLine(application.IsLoanApproved(carStrategy));
-            Console.WriteLine(application.IsLoanApproved(homeStrategy));
+            Console.WriteLine(application.IsLoanApproved(a => a.CreditScore >= 700));
+            Console.WriteLine(application.IsLoanApproved(a => a.CreditScore >= 750 && a.MonthlyIncome >= 50000));
         }
     }
 }
